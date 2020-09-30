@@ -2,6 +2,8 @@ package com.example.assignment_2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
@@ -31,10 +33,31 @@ public class InventoryActivity extends AppCompatActivity {
         final ImageView iconLogOut = findViewById(R.id.iconLogOut);
         iconLogOut.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                // Init dialog to confirm logout
+                AlertDialog.Builder builder = new AlertDialog.Builder(InventoryActivity.this);
+                // Set characteristics
+                builder.setMessage("Are you sure you want to log out?")
+                        .setTitle("Log out");
 
-                // return to sign in page, clear current user
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // OK button was clicked
+                        // logout
+                        // return to sign in page
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Cancel log out
+                    }
+                });
+
+                // Get AlertDialog
+                AlertDialog dialog = builder.create();
+                // Show dialog
+                dialog.show();
             }
         });
     }
