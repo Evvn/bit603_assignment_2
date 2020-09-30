@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class InventoryActivity extends AppCompatActivity {
 
@@ -15,6 +16,11 @@ public class InventoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
+
+        // inventory screen heading - personalise to current user
+        final TextView textHeading = findViewById(R.id.textInventoryHeading);
+        String customHeading = "Hi, " + MainActivity.currentUser.getUsername();
+        textHeading.setText(customHeading);
 
         // logout button listener
         final ImageView iconLogOut = findViewById(R.id.iconLogOut);

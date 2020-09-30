@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Assignment_2</string>
     <string name="login_heading">Sign in</string>
-    <string name="inventory_heading">Inventory</string>
+    <string name="inventory_heading">Hi, USER</string>
     <string name="login_name_placeholder">Name</string>
     <string name="login_password_placeholder">Password</string>
     <string name="login_button">Sign in</string>
