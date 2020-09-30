@@ -3,6 +3,7 @@ package com.example.assignment_2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,11 @@ public class InventoryActivity extends AppCompatActivity {
         // inventory screen heading - personalise to current user
         final TextView textHeading = findViewById(R.id.textInventoryHeading);
         String customHeading = "Hi, " + MainActivity.currentUser.getUsername();
+        // set message
         textHeading.setText(customHeading);
+        // set color
+        int favoriteColor = Color.parseColor(MainActivity.currentUser.getFavoriteColor());
+        textHeading.setTextColor(favoriteColor);
 
         // logout button listener
         final ImageView iconLogOut = findViewById(R.id.iconLogOut);
