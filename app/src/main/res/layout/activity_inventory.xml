@@ -23,12 +23,63 @@
         android:id="@+id/iconLogOut"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
         android:contentDescription="@string/logout_button_text"
+        app:layout_constraintBottom_toTopOf="@+id/textLogoutLabel"
+        app:layout_constraintEnd_toEndOf="@+id/textLogoutLabel"
+        app:layout_constraintStart_toStartOf="@+id/textLogoutLabel"
+        app:srcCompat="@drawable/ic_sign_out" />
+
+    <TextView
+        android:id="@+id/textLogoutLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/logout_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_sign_out" />
+        app:layout_constraintStart_toEndOf="@+id/textAddLabel" />
+
+    <ImageView
+        android:id="@+id/iconAddItem"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/add_button_text"
+        app:layout_constraintBottom_toTopOf="@+id/textAddLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_add" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/inventory_button_text"
+        app:layout_constraintBottom_toTopOf="@+id/textInventoryLabel"
+        app:layout_constraintEnd_toEndOf="@+id/textInventoryLabel"
+        app:layout_constraintStart_toStartOf="@+id/textInventoryLabel"
+        app:srcCompat="@drawable/ic_inventory" />
+
+    <TextView
+        android:id="@+id/textInventoryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/inventory_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textAddLabel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textAddLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/add_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
