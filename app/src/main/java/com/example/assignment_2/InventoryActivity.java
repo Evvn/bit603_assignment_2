@@ -7,11 +7,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,8 +23,13 @@ public class InventoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
-        // inventory screen heading - personalise to current user
         final TextView textHeading = findViewById(R.id.textInventoryHeading);
+        final ImageView iconInventory = findViewById(R.id.iconInventory);
+        final ImageView iconAddItem = findViewById(R.id.iconAddItem);
+        final ImageView iconLogOut = findViewById(R.id.iconLogOut);
+        final TextView textOutput = findViewById(R.id.inventoryOutput);
+
+        // inventory screen heading - personalise to current user
         String customHeading = "Hi, " + MainActivity.currentUser.getUsername();
         // set message
         textHeading.setText(customHeading);
@@ -36,7 +38,6 @@ public class InventoryActivity extends AppCompatActivity {
         textHeading.setTextColor(favoriteColor);
 
         // logout button listener
-        final ImageView iconLogOut = findViewById(R.id.iconLogOut);
         iconLogOut.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Init dialog to confirm logout
@@ -80,7 +81,6 @@ public class InventoryActivity extends AppCompatActivity {
         // textOutput.setText(output);
 
         // reload inventory db on icon click
-        final ImageView iconInventory = findViewById(R.id.iconInventory);
         iconInventory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 List<Item> items = inventoryDatabase.dao().getItems();
@@ -89,6 +89,15 @@ public class InventoryActivity extends AppCompatActivity {
                     output += i.getItemName() + " " + i.getQuantity() + "\n";
                 }
                 // textOutput.setText(output);
+            }
+        });
+
+        // add item icon event listener
+        iconAddItem.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+               // navigate to add item page
+                Intent i = new Intent(getApplicationContext(), AddItemActivity.class);
+                startActivity(i);
             }
         });
 
