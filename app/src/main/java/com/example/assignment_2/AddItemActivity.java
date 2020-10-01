@@ -27,7 +27,6 @@ public class AddItemActivity extends AppCompatActivity {
         // cancel button event listener
         buttonCancelAdd.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 // navigate to inventory page
                 Intent i = new Intent(getApplicationContext(), InventoryActivity.class);
                 startActivity(i);
@@ -90,7 +89,7 @@ public class AddItemActivity extends AppCompatActivity {
                 InventoryActivity.inventoryDatabase.dao().addItem(i);
 
                 // Display a message
-                Toast.makeText(getBaseContext(),"Customer added successfully!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(),"New item added successfully!", Toast.LENGTH_SHORT).show();
 
                 // navigate to inventory page
                 Intent inv = new Intent(getApplicationContext(), InventoryActivity.class);

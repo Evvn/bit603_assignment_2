@@ -27,7 +27,7 @@ public class InventoryActivity extends AppCompatActivity {
         final ImageView iconInventory = findViewById(R.id.iconInventory);
         final ImageView iconAddItem = findViewById(R.id.iconAddItem);
         final ImageView iconLogOut = findViewById(R.id.iconLogOut);
-        final TextView textOutput = findViewById(R.id.inventoryOutput);
+        final TextView inventoryOutput = findViewById(R.id.inventoryOutput);
 
         // inventory screen heading - personalise to current user
         String customHeading = "Hi, " + MainActivity.currentUser.getUsername();
@@ -76,9 +76,9 @@ public class InventoryActivity extends AppCompatActivity {
         List<Item> items = inventoryDatabase.dao().getItems();
         String output = "";
         for(Item i : items) {
-            output += i.getItemName() + " " + i.getQuantity() + "\n";
+            output += i.getQuantity() + "x " + i.getItemName() + "\n";
         }
-        // textOutput.setText(output);
+        inventoryOutput.setText(output);
 
         // reload inventory db on icon click
         iconInventory.setOnClickListener(new View.OnClickListener() {
@@ -86,9 +86,9 @@ public class InventoryActivity extends AppCompatActivity {
                 List<Item> items = inventoryDatabase.dao().getItems();
                 String output = "";
                 for(Item i : items) {
-                    output += i.getItemName() + " " + i.getQuantity() + "\n";
+                    output += i.getQuantity() + "x " + i.getItemName() + "\n";
                 }
-                // textOutput.setText(output);
+                 inventoryOutput.setText(output);
             }
         });
 
